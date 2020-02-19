@@ -37,12 +37,12 @@ namespace GIBS.Modules.FlexMLS_Agent
         protected override void OnInit(EventArgs e)
         {
             base.OnInit(e);
-            //AIzaSyCduA_H_yTAEVuF0IaDbe2Z4GwOw_SKJGA
+            
 
             FlexMLS_AgentSettings settingsData = new FlexMLS_AgentSettings(this.TabModuleId);
             string myAIPkey = settingsData.GoogleMapAPIKey.ToString();
             lblDebug.Text = myAIPkey.ToString() + " JOE";
-            GMap1.Key = myAIPkey.ToString();        // "AIzaSyBjzwEMmjYu8Qtxrgv9Wfhh69IseYdMr24";  //Key for browser apps (with referers)  
+            GMap1.Key = myAIPkey.ToString();         //Key for browser apps (with referers)  
             GControl control = new GControl(GControl.preBuilt.LargeMapControl);
 
             GMap1.Add(control);
