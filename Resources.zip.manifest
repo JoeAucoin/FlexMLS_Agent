@@ -1,0 +1,40 @@
+﻿<dotnetnuke type="ResourceFile" version="5.0">
+  <files>
+    <file>
+      <path />
+      <name>EditFlexMLS_Agent.ascx</name>
+    </file>
+    <file>
+      <path />
+      <name>Settings.ascx</name>
+    </file>
+    <file>
+      <path />
+      <name>Style.css</name>
+    </file>
+    <file>
+      <path />
+      <name>ViewFlexMLS_Agent.ascx</name>
+    </file>
+    <file>
+      <path>App_LocalResources/</path>
+      <name>EditFlexMLS_Agent.ascx.resx</name>
+    </file>
+    <file>
+      <path>App_LocalResources/</path>
+      <name>Settings.ascx.resx</name>
+    </file>
+    <file>
+      <path>App_LocalResources/</path>
+      <name>ViewFlexMLS_Agent.ascx.resx</name>
+    </file>
+    <file>
+      <path>Documentation/</path>
+      <name>Documentation.css</name>
+    </file>
+    <file>
+      <path>Documentation/</path>
+      <name>Documentation.html</name>
+    </file>
+  </files>
+</dotnetnuke>

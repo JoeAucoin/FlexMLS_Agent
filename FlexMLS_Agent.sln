@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29709.97
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlexMLS_Agent", "FlexMLS_Agent.csproj", "{EE48C45C-BCBE-4003-854B-E06C8AD0A14F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EE48C45C-BCBE-4003-854B-E06C8AD0A14F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE48C45C-BCBE-4003-854B-E06C8AD0A14F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE48C45C-BCBE-4003-854B-E06C8AD0A14F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE48C45C-BCBE-4003-854B-E06C8AD0A14F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7076DB59-49C9-4409-A477-F1BF03391418}
+	EndGlobalSection
+EndGlobal

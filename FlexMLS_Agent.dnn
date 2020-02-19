@@ -1,0 +1,104 @@
+<dotnetnuke type="Package" version="5.0">
+  <packages>
+    <package name="GIBS.FlexMLS_Agent" type="Module" version="1.0.3">
+      <friendlyName>GIBS - FlexMLS - Agent</friendlyName>
+      <description>GIBS - FlexMLS - Agent</description>
+      <iconFile>/Images/icon_extensions_32px.png</iconFile>
+      <owner>
+        <name>Joseph M Aucoin</name>
+        <organization>Global Internet Business Solutions</organization>
+        <url>www.gibs.com</url>
+        <email>jaucoin@gibs.com</email>
+      </owner>
+      <license>The license for this package is not currently included within the installation file, please check with the vendor for full license details.</license>
+      <releaseNotes>This package has no Release Notes</releaseNotes>
+
+      <components>
+        <component type="Script">
+          <scripts>
+            <basePath>DesktopModules\GIBS\FlexMLS_Agent</basePath>
+            <script type="Install">
+              <name>01.00.00.SqlDataProvider</name>
+              <version>01.00.00</version>
+            </script>
+            <script type="UnInstall">
+              <name>Uninstall.SqlDataProvider</name>
+              <version>1.0.6</version>
+            </script>
+          </scripts>
+        </component>
+        <component type="ResourceFile">
+          <resourceFiles>
+            <basePath>DesktopModules/GIBS/FlexMLS_Agent</basePath>
+            <resourceFile>
+              <name>Resources.zip</name>
+            </resourceFile>
+          </resourceFiles>
+        </component>
+        <component type="Module">
+          <desktopModule>
+            <moduleName>GIBS.FlexMLS_Agent</moduleName>
+            <foldername>GIBS/FlexMLS_Agent</foldername>
+            <businessControllerClass />
+            <supportedFeatures />
+            <moduleDefinitions>
+              <moduleDefinition>
+                <friendlyName>GIBS - FlexMLS - Agent</friendlyName>
+                <definitionName>GIBS - FlexMLS - Agent</definitionName>
+                <defaultCacheTime>0</defaultCacheTime>
+                <moduleControls>
+                  <moduleControl>
+                    <controlKey />
+                    <controlSrc>DesktopModules/GIBS/FlexMLS_Agent/ViewFlexMLS_Agent.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle />
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <supportsPopUps>False</supportsPopUps>
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                  <moduleControl>
+                    <controlKey>Settings</controlKey>
+                    <controlSrc>DesktopModules/GIBS/FlexMLS_Agent/Settings.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle>FlexMLS - Agent Settings</controlTitle>
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <supportsPopUps>False</supportsPopUps>
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                  
+                  
+                  <moduleControl>
+                    <controlKey>EditBuyer</controlKey>
+                    <controlSrc>DesktopModules/GIBS/FlexMLS_Agent/EditFlexMLS_Agent.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle>FlexMLS - Agent Settings</controlTitle>
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <supportsPopUps>False</supportsPopUps>
+                    <viewOrder>1</viewOrder>
+                  </moduleControl>                  
+                  
+                </moduleControls>
+              </moduleDefinition>
+            </moduleDefinitions>
+          </desktopModule>
+        </component>
+        <component type="Assembly">
+          <assemblies>
+            <basePath>bin</basePath>
+            <assembly>
+              <name>GIBS.Modules.FlexMLS_Agent.dll</name>
+            </assembly>
+          </assemblies>
+        </component>
+
+      </components>
+    </package>
+  </packages>
+</dotnetnuke>      
+
