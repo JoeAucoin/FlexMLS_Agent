@@ -9,7 +9,7 @@ using DotNetNuke.Services.Search;
 
 namespace GIBS.FlexMLS_Agent.Components
 {
-    public class FlexMLS_AgentController : ISearchable, IPortable
+    public class FlexMLS_AgentController : IPortable
     {
 
         #region public method
@@ -37,7 +37,8 @@ namespace GIBS.FlexMLS_Agent.Components
 
         public FlexMLS_AgentInfo FlexMLS_Agent_Select(int buyerUserID)
         {
-            return (FlexMLS_AgentInfo)CBO.FillObject(DataProvider.Instance().FlexMLS_Agent_Select(buyerUserID), typeof(FlexMLS_AgentInfo));
+           
+            return CBO.FillObject<FlexMLS_AgentInfo>(DataProvider.Instance().FlexMLS_Agent_Select(buyerUserID));
         }
 
 
@@ -62,7 +63,7 @@ namespace GIBS.FlexMLS_Agent.Components
 
         public FlexMLS_AgentInfo GetFlexMLS_Agent(int moduleId, int itemId)
         {
-            return (FlexMLS_AgentInfo)CBO.FillObject(DataProvider.Instance().GetFlexMLS_Agent(moduleId, itemId), typeof(FlexMLS_AgentInfo));
+            return CBO.FillObject<FlexMLS_AgentInfo>(DataProvider.Instance().GetFlexMLS_Agent(moduleId, itemId));
         }
 
 
@@ -106,31 +107,7 @@ namespace GIBS.FlexMLS_Agent.Components
 
         #endregion
 
-        #region ISearchable Members
 
-        /// <summary>
-        /// Implements the search interface required to allow DNN to index/search the content of your
-        /// module
-        /// </summary>
-        /// <param name="modInfo"></param>
-        /// <returns></returns>
-        public DotNetNuke.Services.Search.SearchItemInfoCollection GetSearchItems(ModuleInfo modInfo)
-        {
-            SearchItemInfoCollection searchItems = new SearchItemInfoCollection();
-
-            List<FlexMLS_AgentInfo> infos = GetFlexMLS_Agents(modInfo.ModuleID);
-
-            foreach (FlexMLS_AgentInfo info in infos)
-            {
-                SearchItemInfo searchInfo = new SearchItemInfo(modInfo.ModuleTitle, info.Name, info.CreatedByUser, info.CreatedDate,
-                                                    modInfo.ModuleID, info.ItemId.ToString(), info.Name, "Item=" + info.ItemId.ToString());
-                searchItems.Add(searchInfo);
-            }
-
-            return searchItems;
-        }
-
-        #endregion
 
         #region IPortable Members
 

@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 
 namespace GIBS.Modules.FlexMLS_Agent
 {
-    public partial class Settings : ModuleSettingsBase
+    public partial class Settings : FlexMLS_AgentSettings
     {
 
         /// <summary>
@@ -25,35 +25,35 @@ namespace GIBS.Modules.FlexMLS_Agent
                     BindModules();
                     GetRoles();
 
-                    FlexMLS_AgentSettings settingsData = new FlexMLS_AgentSettings(this.TabModuleId);
 
-                    if (settingsData.FlexMLSModule != null)
+                    if (Settings.Contains("FlexMLSModule"))
+                        
                     {
-                        ddlFlexMLSModule.SelectedValue = settingsData.FlexMLSModule.ToString();
+                        ddlFlexMLSModule.SelectedValue = Settings["FlexMLSModule"].ToString();
                         
                     }
-                    
-                    if (settingsData.AgentRole != null)
-                    {
-                        ddlAgentRole.SelectedValue = settingsData.AgentRole.ToString();
 
-                    }
-                    
-                    if (settingsData.BrokerRole != null)
+                    if (Settings.Contains("AgentRole"))
                     {
-                        ddlBrokerRole.SelectedValue = settingsData.BrokerRole.ToString();
-
-                    }
-                    
-                    if (settingsData.BuyerRole != null)
-                    {
-                        ddlBuyerRole.SelectedValue = settingsData.BuyerRole.ToString();
+                        ddlAgentRole.SelectedValue = Settings["AgentRole"].ToString();
 
                     }
 
-                    if (settingsData.GoogleMapAPIKey != null)
+                    if (Settings.Contains("BrokerRole"))
                     {
-                        txtGoogleMapAPIKey.Text = settingsData.GoogleMapAPIKey.ToString();
+                        ddlBrokerRole.SelectedValue = Settings["BrokerRole"].ToString();
+
+                    }
+
+                    if (Settings.Contains("BuyerRole"))
+                    {
+                        ddlBuyerRole.SelectedValue = Settings["BuyerRole"].ToString();
+
+                    }
+
+                    if (Settings.Contains("GoogleMapAPIKey"))
+                    {
+                        txtGoogleMapAPIKey.Text = Settings["GoogleMapAPIKey"].ToString();
                     }
 
 
@@ -146,8 +146,6 @@ namespace GIBS.Modules.FlexMLS_Agent
          //   ddlBuyerRole.Items.Remove("Registered Users");
             ddlBuyerRole.Items.Remove("Subscribers");
             
-
-
         }
 
         /// <summary>
@@ -156,13 +154,12 @@ namespace GIBS.Modules.FlexMLS_Agent
         public override void UpdateSettings()
         {
             try
-            {
-                FlexMLS_AgentSettings settingsData = new FlexMLS_AgentSettings(this.TabModuleId);
-                settingsData.FlexMLSModule = ddlFlexMLSModule.SelectedValue.ToString();
-                settingsData.AgentRole = ddlAgentRole.SelectedValue.ToString();
-                settingsData.BrokerRole = ddlBrokerRole.SelectedValue.ToString();
-                settingsData.BuyerRole = ddlBuyerRole.SelectedValue.ToString();
-                settingsData.GoogleMapAPIKey = txtGoogleMapAPIKey.Text.ToString();
+            {  
+                FlexMLSModule = ddlFlexMLSModule.SelectedValue.ToString();
+                AgentRole = ddlAgentRole.SelectedValue.ToString();
+                BrokerRole = ddlBrokerRole.SelectedValue.ToString();
+                BuyerRole = ddlBuyerRole.SelectedValue.ToString();
+                GoogleMapAPIKey = txtGoogleMapAPIKey.Text.ToString();
             }
             catch (Exception ex)
             {

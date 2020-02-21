@@ -81,27 +81,19 @@ namespace GIBS.Modules.FlexMLS_Agent
             try
             {
 
-
-                FlexMLS_AgentSettings settingsData = new FlexMLS_AgentSettings(this.TabModuleId);
-
-                if (settingsData.BuyerRole != null)
+                if (Settings.Contains("BuyerRole"))
                 {
-                    lblDebug.Text = settingsData.BuyerRole.ToString();
-
-                    _Role = settingsData.BuyerRole.ToString();
-                    
-                    
+                    _Role = Settings["BuyerRole"].ToString();
+                }
+                if (Settings.Contains("AgentRole"))
+                {
+                    _AgentRole = Settings["AgentRole"].ToString();
+                }
+                if (Settings.Contains("BrokerRole"))
+                {
+                    _BrokerRole = Settings["BrokerRole"].ToString();
                 }
 
-                if (settingsData.AgentRole != null)
-                {
-                    _AgentRole = settingsData.AgentRole.ToString();
-                }
-
-                if (settingsData.BrokerRole != null)
-                {
-                    _BrokerRole = settingsData.BrokerRole.ToString();
-                }
 
             }
             catch (Exception ex)

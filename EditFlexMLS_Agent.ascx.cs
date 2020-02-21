@@ -38,10 +38,12 @@ namespace GIBS.Modules.FlexMLS_Agent
         {
             base.OnInit(e);
             
-
-            FlexMLS_AgentSettings settingsData = new FlexMLS_AgentSettings(this.TabModuleId);
-            string myAIPkey = settingsData.GoogleMapAPIKey.ToString();
-            lblDebug.Text = myAIPkey.ToString() + " JOE";
+            string myAIPkey = "";
+            if (Settings.Contains("GoogleMapAPIKey"))
+            {
+                myAIPkey = Settings["GoogleMapAPIKey"].ToString();
+            }     
+          //  lblDebug.Text = myAIPkey.ToString();
             GMap1.Key = myAIPkey.ToString();         //Key for browser apps (with referers)  
             GControl control = new GControl(GControl.preBuilt.LargeMapControl);
 
@@ -844,10 +846,13 @@ namespace GIBS.Modules.FlexMLS_Agent
                 }
                 
                 FlexMLS_FavoritesController controller = new FlexMLS_FavoritesController();
+                string _FlexMLSModule = "0";
+                if (Settings.Contains("FlexMLSModule"))
+                {
+                    _FlexMLSModule = Settings["FlexMLSModule"].ToString();
+                }
 
-                FlexMLS_AgentSettings settingsData = new FlexMLS_AgentSettings(this.TabModuleId);
-
-                int FlexMLSModuleID = Int32.Parse(settingsData.FlexMLSModule.ToString());
+                int FlexMLSModuleID = Int32.Parse(_FlexMLSModule.ToString());
 
                 controller.FlexMLS_Favorites_Delete_By_MlsNumber(FlexMLSModuleID, BuyerID, MLSnumber.ToString());
 
@@ -898,29 +903,18 @@ namespace GIBS.Modules.FlexMLS_Agent
             try
             {
 
-                
-                FlexMLS_AgentSettings settingsData = new FlexMLS_AgentSettings(this.TabModuleId);
-
-                if (settingsData.BuyerRole != null)
+                if (Settings.Contains("BuyerRole"))
                 {
-                    lblDebug.Text = settingsData.BuyerRole.ToString();
-
-                    _Role = settingsData.BuyerRole.ToString();
-               //     ddlRoles.SelectedValue = _Role.ToString();
-
+                    _Role = Settings["BuyerRole"].ToString();
                 }
-
-                if (settingsData.AgentRole != null)
+                if (Settings.Contains("AgentRole"))
                 {
-                    _AgentRole = settingsData.AgentRole.ToString();
+                    _AgentRole = Settings["AgentRole"].ToString();
                 }
-
-                if (settingsData.FlexMLSModule != null)
+                if (Settings.Contains("FlexMLSModule"))
                 {
-                    _FlexMLSPage = settingsData.FlexMLSModule;
+                    _FlexMLSPage = Settings["FlexMLSModule"].ToString();
                 }
-
-
 
             }
             catch (Exception ex)

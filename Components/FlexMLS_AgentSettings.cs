@@ -18,45 +18,9 @@ namespace GIBS.FlexMLS_Agent.Components
     /// <summary>
     /// Provides strong typed access to settings used by module
     /// </summary>
-    public class FlexMLS_AgentSettings
+    public class FlexMLS_AgentSettings : ModuleSettingsBase
     {
-        ModuleController controller;
-        int tabModuleId;
 
-        public FlexMLS_AgentSettings(int tabModuleId)
-        {
-            controller = new ModuleController();
-            this.tabModuleId = tabModuleId;
-        }
-
-        protected T ReadSetting<T>(string settingName, T defaultValue)
-        {
-            Hashtable settings = controller.GetTabModuleSettings(this.tabModuleId);
-
-            T ret = default(T);
-
-            if (settings.ContainsKey(settingName))
-            {
-                System.ComponentModel.TypeConverter tc = System.ComponentModel.TypeDescriptor.GetConverter(typeof(T));
-                try
-                {
-                    ret = (T)tc.ConvertFrom(settings[settingName]);
-                }
-                catch
-                {
-                    ret = defaultValue;
-                }
-            }
-            else
-                ret = defaultValue;
-
-            return ret;
-        }
-
-        protected void WriteSetting(string settingName, string value)
-        {
-            controller.UpdateTabModuleSetting(this.tabModuleId, settingName, value);
-        }
 
         #region public properties
 
@@ -69,32 +33,81 @@ namespace GIBS.FlexMLS_Agent.Components
         //GoogleMapAPIKey  txtGoogleMapAPIKey
         public string GoogleMapAPIKey
         {
-            get { return ReadSetting<string>("googleMapAPIKey", null); }
-            set { WriteSetting("googleMapAPIKey", value); }
+            get
+            {
+                if (Settings.Contains("GoogleMapAPIKey"))
+                    return Settings["GoogleMapAPIKey"].ToString();
+                return "";
+            }
+            set
+            {
+                var mc = new ModuleController();
+                mc.UpdateModuleSetting(ModuleId, "GoogleMapAPIKey", value.ToString());
+            }
         }
+
 
         public string FlexMLSModule
         {
-            get { return ReadSetting<string>("FlexMLSModule", null); }
-            set { WriteSetting("FlexMLSModule", value); }
+            get
+            {
+                if (Settings.Contains("FlexMLSModule"))
+                    return Settings["FlexMLSModule"].ToString();
+                return "";
+            }
+            set
+            {
+                var mc = new ModuleController();
+                mc.UpdateModuleSetting(ModuleId, "FlexMLSModule", value.ToString());
+            }
         }
+
 
         public string AgentRole
         {
-            get { return ReadSetting<string>("agentRole", null); }
-            set { WriteSetting("agentRole", value); }
+            get
+            {
+                if (Settings.Contains("AgentRole"))
+                    return Settings["AgentRole"].ToString();
+                return "";
+            }
+            set
+            {
+                var mc = new ModuleController();
+                mc.UpdateModuleSetting(ModuleId, "AgentRole", value.ToString());
+            }
         }
+
 
         public string BrokerRole
         {
-            get { return ReadSetting<string>("brokerRole", null); }
-            set { WriteSetting("brokerRole", value); }
+            get
+            {
+                if (Settings.Contains("BrokerRole"))
+                    return Settings["BrokerRole"].ToString();
+                return "";
+            }
+            set
+            {
+                var mc = new ModuleController();
+                mc.UpdateModuleSetting(ModuleId, "BrokerRole", value.ToString());
+            }
         }
+
 
         public string BuyerRole
         {
-            get { return ReadSetting<string>("buyerRole", null); }
-            set { WriteSetting("buyerRole", value); }
+            get
+            {
+                if (Settings.Contains("BuyerRole"))
+                    return Settings["BuyerRole"].ToString();
+                return "";
+            }
+            set
+            {
+                var mc = new ModuleController();
+                mc.UpdateModuleSetting(ModuleId, "BuyerRole", value.ToString());
+            }
         }
 
         #endregion
