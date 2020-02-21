@@ -148,6 +148,7 @@
     <Content Include="BuildScripts\MSBuild.Community.Tasks.Targets" />
     <None Include="FlexMLS_Agent.dnn" />
     <None Include="packages.config" />
+    <Content Include="README.md" />
     <None Include="Uninstall.SqlDataProvider" />
     <Content Include="web.config" />
     <None Include="web.config.old" />
